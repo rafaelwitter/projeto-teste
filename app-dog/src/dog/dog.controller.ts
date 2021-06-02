@@ -21,13 +21,6 @@ export class DogController {
         return {layout: false, opt}
     }
 
-    @Get('update')
-    @Render('dog_update')
-    async show(@Body() body: any){
-        const dogs = await this.dogRepo.find();
-        return {template:false, dogs};
-    }
-
     @Get('list')
     @Render('dog_list')
     async dog_list(){
@@ -38,8 +31,6 @@ export class DogController {
     @Get('create')
     @Render('dog_create')
     async dog_create(){
-        //const dg = await this.dogRepo.create({age:11,race:"pitbull",color:"dark blue"});
-        //return this.dogRepo.save(dg);
         return {layout: false}
     }
 
@@ -51,7 +42,7 @@ export class DogController {
     }
 
     @Put('update/:id')
-    async update(@Param('id') id: string, @Body() body: Dog): Promise<Dog>{
+    async modify(@Param('id') id: string, @Body() body: Dog): Promise<Dog>{
         this.dogRepo.findOne(id);
         this.dogRepo.update({id: +id}, body);
         console.log(body);
