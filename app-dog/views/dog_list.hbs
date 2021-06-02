@@ -5,9 +5,10 @@
     </head>
     <body>
         <h1>All dogs will be listed here</h1>
+        <h3>Select one to update</h3>
         <ul>
             {{#forEach dogs }}
-                <li>{{ race }} - {{ color }} - {{ age }}</li>
+                <li><input type="radio" name="id" id="{{ id }}" onclick="window.alert({{id}})">Race: {{ race }} - Color: {{ color }} - Age: {{ age }}</li>
             {{/forEach}}
         </ul>
         <script src="/js/bootstrap.js"></script>

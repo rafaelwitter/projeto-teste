@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Render, Req, Request } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Render, Req, Request, Res } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { request } from 'express';
 import { Dog } from 'src/dog.entity';
@@ -21,9 +21,11 @@ export class DogController {
         return {layout: false, opt}
     }
 
-    @Get(':id')
-    async show(@Param('id') id: string){
-        return this.dogRepo.findOne(id)
+    @Get('update')
+    @Render('dog_update')
+    async show(@Body() body: any){
+        const dogs = await this.dogRepo.find();
+        return {template:false, dogs};
     }
 
     @Get('list')
@@ -49,9 +51,10 @@ export class DogController {
     }
 
     @Put('update/:id')
-    async update(@Param('id') id: string, @Body() body: Dog){
-        const dog = await this.dogRepo.findOne(id)
+    async update(@Param('id') id: string, @Body() body: Dog): Promise<Dog>{
+        this.dogRepo.findOne(id)
         this.dogRepo.update({id: +id}, body)
+        console.log(body)
         return this.dogRepo.findOne(id)
     }
 }
