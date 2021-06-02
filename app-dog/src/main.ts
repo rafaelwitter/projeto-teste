@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 import * as expressHbs from 'express-handlebars'
 import * as handlebarsHelpers from 'handlebars-helpers'
 import { join } from 'path';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -19,6 +20,14 @@ async function bootstrap() {
   app.engine('hbs', hbs.engine);
   app.setViewEngine('hbs');
   app.useStaticAssets(join(__dirname, '..', 'public'));
+
+  const options = new DocumentBuilder()
+    .setTitle("Docs")
+    .setDescription("Docs for DOG API")
+    .build();
+
+  const document = SwaggerModule.createDocument(app,options);
+  SwaggerModule.setup('api', app, document); 
 
   await app.listen(3000);
 }
