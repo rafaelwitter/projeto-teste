@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Param, Post, Put, Render, Req, Request, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Render, Req, Request, Res } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { request } from 'express';
 import { Dog } from 'src/dog.entity';
-import { Repository } from 'typeorm';
+import { ObjectID, Repository } from 'typeorm';
 
 @Controller('dogs')
 export class DogController {
@@ -52,9 +52,16 @@ export class DogController {
 
     @Put('update/:id')
     async update(@Param('id') id: string, @Body() body: Dog): Promise<Dog>{
-        this.dogRepo.findOne(id)
-        this.dogRepo.update({id: +id}, body)
-        console.log(body)
-        return this.dogRepo.findOne(id)
+        this.dogRepo.findOne(id);
+        this.dogRepo.update({id: +id}, body);
+        console.log(body);
+        return this.dogRepo.findOne(id);
+    }
+
+    @Delete(':id/remove')
+    @HttpCode(204)
+    async remove(@Param('id') id: string): Promise<void> {
+        await this.dogRepo.delete(+id);
+        console.log('oi');
     }
 }

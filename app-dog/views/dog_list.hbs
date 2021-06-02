@@ -8,8 +8,20 @@
         <h3>Select one to update</h3>
         <ul>
             {{#forEach dogs }}
-                <li><input type="radio" name="id" id="{{ id }}" onclick="window.alert({{id}})">Race: {{ race }} - Color: {{ color }} - Age: {{ age }}</li>
+                <li>    
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{ id }}" value="update">
+                    <label class="form-check-label" for="inlineRadio1">Update</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{ id }}" value="delete">
+                    <label class="form-check-label" for="inlineRadio2">Delete</label>
+                    </div>
+                    Race: {{ race }} - Color: {{ color }} - Age: {{ age }}
+                    
+                </li>
             {{/forEach}}
+            <input class="btn btn-primary" type="submit" value="Ok" >
         </ul>
         <script src="/js/bootstrap.js"></script>
     </body>
