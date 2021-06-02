@@ -1,0 +1,30 @@
+version: '2.2'
+
+services:
+    app-dog:
+        build: .
+        container_name: app-dog
+        entrypoint: ./.docker/entrypoint.sh
+        ports: 
+            - 3000:3000
+        volumes: 
+            - .:/home/node/projeto-teste/app-dog
+
+    db:
+        image: mysql:8.0.25
+        container_name: app-dog-db
+        restart: always
+        tty: true
+        ports: 
+            - "33006:3306"
+        volumes: 
+            - app-dog-dbdata:/var/lib/mysql
+        environment: 
+            - MYSQL_DATABASE=dog-app
+            - MYSQL_USER_PASSWORD=dogs
+            - MYSQL_USER=dogs
+        command: --default-authentication-plugin=caching_sha2_password
+
+volumes: 
+    app-dog-dbdata:
+        external: true

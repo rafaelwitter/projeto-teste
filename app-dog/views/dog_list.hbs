@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Dogs list</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>All dogs will be listed here</h1>
+        <ul>
+            {{#forEach dogs }}
+                <li>{{ race }} - {{ color }} - {{ age }}</li>
+            {{/forEach}}
+        </ul>
+        <script src="/js/bootstrap.js"></script>
+    </body>
+</html>
