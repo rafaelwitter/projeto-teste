@@ -20,10 +20,6 @@
             {{#forEach dogs }}
                 <li>    
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="seletor" value="update/ {{ id }}">
-                    <label class="form-check-label" for="inlineRadio">Update</label>
-                    </div>
-                    <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="seletor" value="delete/{{ id }}" onclick="console.log({{ id }})">
                     <label class="form-check-label" for="inlineRadio">Delete</label>
                     </div>
