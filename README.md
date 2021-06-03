@@ -1,5 +1,6 @@
 # projeto-teste
-Projeto para teste de desenvolvedor junior. EM ANDAMENTO
+Projeto para teste de desenvolvedor junior.
+
 ## Instruções
 ### Subindo o container
 `$ docker-composer up --build`
@@ -16,7 +17,7 @@ Projeto para teste de desenvolvedor junior. EM ANDAMENTO
 - Criação de um novo objeto
 
 [View principal](http://localhost:3000/dogs)
-- Página principal do objeto, o objetivo era redirecionar para cada função através de botões
+- Página principal do objeto, redirecionamento para cada função através de botões
 
 [View update cachorros](http://localhost:3000/dogs/update/)
 - Inserir o ID do cachorro após o update/
