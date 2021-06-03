@@ -15,8 +15,11 @@ Projeto para teste de desenvolvedor junior. EM ANDAMENTO
 [Criar cachorro](http://localhost:3000/dogs/create)
 - Criação de um novo objeto
 
-[View principal em criação](http://localhost:3000/dogs)
+[View principal](http://localhost:3000/dogs)
 - Página principal do objeto, o objetivo era redirecionar para cada função através de botões
+
+[View update cachorros](http://localhost:3000/dogs/update/)
+- Inserir o ID do cachorro após o update/
 
 ### Bibliotecas usadas
 - TypeORM gerenciando a serialização de objetos
