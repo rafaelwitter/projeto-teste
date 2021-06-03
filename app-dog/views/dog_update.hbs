@@ -14,7 +14,7 @@
             <input type="text" id="race" name="race" value={{dog.race}}><br><br>
             <label for="color">Color:</label>
             <input type="text" id="color" name="race" value={{dog.color}}><br><br>
-            <input type="button" class="btn btn-dark" onclick="window.fetch('http://localhost:3000/dogs/update/'+{{dog.id}}+'/'+$('#age').val()+'/'+$('#race').val()+'/'+$('#color').val(), {method: 'PUT'})" value="Ok"></input>
+            <input type="button" class="btn btn-dark" onclick="window.fetch('http://localhost:3000/dogs/update/'+{{dog.id}}+'/'+$('#age').val()+'/'+$('#race').val()+'/'+$('#color').val(), {method: 'PUT'}).then(window.alert('Success'))" value="Ok"></input>
         </form>
         <script>
             const dg = {
