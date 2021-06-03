@@ -49,7 +49,7 @@ export class DogController {
         return this.dogRepo.findOne(id);
     }
 
-    @Delete(':id/remove')
+    @Delete('delete/:id')
     @HttpCode(204)
     async remove(@Param('id') id: string): Promise<void> {
         await this.dogRepo.delete(+id);

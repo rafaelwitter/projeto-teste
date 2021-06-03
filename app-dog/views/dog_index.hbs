@@ -2,12 +2,13 @@
     <head>
         <title>Dogs</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/js/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <h1>Select an option</h1>
-        <button type="button" class="btn btn-dark" onclick="{{ dog_list }}">View all dogs</button>
-        <button type="button" class="btn btn-dark" onclick="{{ create }}">Create a dog</button>
-        <button type="button" class="btn btn-dark" onclick="{{ dog_list }}">Update a dog</button>
+        <button type="button" class="btn btn-dark" onclick="window.location.replace('http://localhost:3000/dogs/list')">View all dogs</button>
+        <button type="button" class="btn btn-dark" onclick="window.location.replace('http://localhost:3000/dogs/create')">Create a dog</button>
+        <button type="button" class="btn btn-dark" onclick="window.location.replace('http://localhost:3000/api/#/default/DogController_modify')">Update a dog</button>
         <script src="/js/bootstrap.js"></script>
     </body>
 </html>
