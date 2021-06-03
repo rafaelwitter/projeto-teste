@@ -41,12 +41,14 @@ export class DogController {
         return "Created success"
     }
 
+    @Get('update/:id')
+    @Render('dog_update')
     @Put('update/:id')
-    async modify(@Param('id') id: string, @Body() body: Dog): Promise<Dog>{
-        this.dogRepo.findOne(id);
-        this.dogRepo.update({id: +id}, body);
-        console.log(body);
-        return this.dogRepo.findOne(id);
+    async modify(@Param('id') id: number){
+        const dog = await this.dogRepo.findOne(id);
+        this.dogRepo.update({id: +id}, dog);
+        console.log(dog);
+        return {layout: false, dog};
     }
 
     @Delete('delete/:id')
