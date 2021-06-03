@@ -11,12 +11,18 @@
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" value={{dog.age}}><br><br>
             <label for="race">Race:</label>
-            <input type="text" id="{{race}}" name="race" value={{dog.race}}><br><br>
+            <input type="text" id="race" name="race" value={{dog.race}}><br><br>
             <label for="color">Color:</label>
             <input type="text" id="color" name="race" value={{dog.color}}><br><br>
-            <input type="submit" value="Submit">
-            
+            <input type="button" class="btn btn-dark" onclick="window.fetch('http://localhost:3000/dogs/update/'+{{dog.id}}+'/'+$('#age').val()+'/'+$('#race').val()+'/'+$('#color').val(), {method: 'PUT'})" value="Ok"></input>
         </form>
+        <script>
+            const dg = {
+                age: $('#age').val(),
+                race: $('#race').val(),
+                color: $('#color').val()
+            };
+        </script>
         <script src="/js/bootstrap.js"></script>
     </body>
 </html>

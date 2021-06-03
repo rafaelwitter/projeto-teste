@@ -43,12 +43,17 @@ export class DogController {
 
     @Get('update/:id')
     @Render('dog_update')
-    @Put('update/:id')
-    async modify(@Param('id') id: number){
+    async update(@Param('id') id: number){
         const dog = await this.dogRepo.findOne(id);
-        this.dogRepo.update({id: +id}, dog);
-        console.log(dog);
         return {layout: false, dog};
+    }
+
+    @Put('update/:id/:age/:race/:color')
+    async modify(@Param('color') color: string,@Param('age') age: number,@Param('race') race: string, @Param('id') id: string){
+        console.log(id,color)
+        const dg =  {age: age, race: race, color: color};
+        await this.dogRepo.update({id: +id}, dg);
+        return 'Dog updated';
     }
 
     @Delete('delete/:id')
