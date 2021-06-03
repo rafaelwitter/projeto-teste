@@ -49,8 +49,7 @@ export class DogController {
     }
 
     @Put('update/:id/:age/:race/:color')
-    async modify(@Param('color') color: string,@Param('age') age: number,@Param('race') race: string, @Param('id') id: string){
-        console.log(id,color)
+    async modify(@Param('id') id: number,@Param('age') age: number,@Param('race') race: string, @Param('color') color: string){
         const dg =  {age: age, race: race, color: color};
         await this.dogRepo.update({id: +id}, dg);
         return 'Dog updated';
