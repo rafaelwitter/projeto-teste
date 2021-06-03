@@ -2,6 +2,16 @@
     <head>
         <title>Dogs list</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script> 
+            $('#seletor').attr("checked",true, function(){
+                alert(1)
+            });
+            var e = $('#action').click(function(){
+                window.alert('oi');
+            });
+    
+        </script>
     </head>
     <body>
         <h1>All dogs will be listed here</h1>
@@ -10,18 +20,18 @@
             {{#forEach dogs }}
                 <li>    
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{ id }}" value="update">
-                    <label class="form-check-label" for="inlineRadio1">Update</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="seletor" value="update">
+                    <label class="form-check-label" for="inlineRadio">Update</label>
                     </div>
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="{{ id }}" value="delete">
-                    <label class="form-check-label" for="inlineRadio2">Delete</label>
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="seletor" value="delete">
+                    <label class="form-check-label" onselect="console.log('r')" for="inlineRadio">Delete</label>
                     </div>
                     Race: {{ race }} - Color: {{ color }} - Age: {{ age }}
                     
                 </li>
             {{/forEach}}
-            <input class="btn btn-primary" type="submit" value="Ok" >
+            <button id="action" class="btn btn-primary" onclick="console.log($('input[type=radio][name=inlineRadioOptions]:checked').val())">teste</button>
         </ul>
         <script src="/js/bootstrap.js"></script>
     </body>
